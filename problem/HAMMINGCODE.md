@@ -22,11 +22,11 @@ Hamming(7,4) code encodes 4 bits of data into a 7-bit code, by adding 3 bits of 
 
 Now, let’s talk about the decoding process of Hamming(7,4) code. To see how the code corrects an isolated error, let’s suppose that the 3rd bit gets flipped incorrectly when the message 0 1 1 0 0 1 1 is transmitted. Therefore, the receiver will receive the following corrupted message instead: 0 1 0 0 0 1 1.
 
-|Position|	1|	2|	3|	4	|5 |	6|	7|
-|--------|--|--|--|--|--|--|--|
-|Encoded Message|	0 |	1 |	1	| 0 |	0 |	1 |	1 |
-|Error|   |   | x |   |   |   |   |				
-|Corrupted Message|	0	| 1	| 0	| 0	| 0	| 1	| 1 |
+| Position |	1  |	2 |	3 |	4	| 5 |	6 |	7 |
+| -------- |---|---|---|---|---|---|---|
+| Encoded Message |	0 |	1 |	1	| 0 |	0 |	1 |	1 |
+| Error |   |   | x |   |   |   |   |				
+| Corrupted Message |	0	| 1	| 0	| 0	| 0	| 1	| 1 |
 
 The receiver then calculates a 3-bit integer, called syndrome, as follows.
 
@@ -35,21 +35,21 @@ The receiver then calculates a 3-bit integer, called syndrome, as follows.
 - The 3rd bit is determined as the XOR of 4th, 5th, 6th and 7th bit. In the above corrupted message, this bit will be 0.
 Concatenating these three digits, the syndrome will be 0112 = 310: the location of the error bit.
 
-|Position|	1|	2|	3|	4	|5 |	6|	7| XOR |
-|--------|--|--|--|--|--|--|--|-----|
-|Check 1	| 0 |		| 0 |		| 0	|   |	1 |	1 |
-|Check 2	|	  | 1 |	0 |		|	  | 1	| 1	| 1 |
-|Check 3	|   |   |  	| 0 |	0 |	1 |	1	| 0 |
+| Position |	1  |	2 |	3 |	4	| 5 |	6 |	7 | XOR |
+| -------- |---|---|---|---|---|---|---|---|
+| Check 1	| 0 |		| 0 |		| 0	|   |	1 |	1 |
+| Check 2	|	  | 1 |	0 |		|	  | 1	| 1	| 1 |
+| Check 3	|   |   |  	| 0 |	0 |	1 |	1	| 0 |
 
 syndrome = 0112 = 310
 Thus the receiver can flip the 3rd bit in the received message. The resulting sequence of 0’s and 1’s will be now correct and we can take the 3rd, 5th, 6th and 7th bit to get the original message: 1 0 1 1.
 
-|Position|	1|	2|	3|	4	|5 |	6|	7|
-|--------|--|--|--|--|--|--|--|
-|Corrupted Message|	0	| 1	| 0 |	0	| 0	| 1 | 1 |
-|Indicated Error|   |   | x	|   |   |   |   |			
-|Corrected Message|	0	| 1	| 1	| 0	| 0	| 1	| 1 |
-|Decoded Message	|   |   |	1	|   | 0	| 1	| 1 |
+| Position |	1  |	2 |	3 |	4	| 5 |	6 |	7 |
+| -------- |---|---|---|---|---|---|---|
+| Corrupted Message |	0	| 1	| 0 |	0	| 0	| 1 | 1 |
+| Indicated Error |   |   | x	|   |   |   |   |			
+| Corrected Message |	0	| 1	| 1	| 0	| 0	| 1	| 1 |
+| Decoded Message	|   |   |	1	|   | 0	| 1	| 1 |
 
 Note when all bits are transmitted correctly, the syndrome will be 0 and no bit needs to be flipped.
 
