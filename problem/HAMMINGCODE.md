@@ -14,10 +14,11 @@ Hamming(7,4) code encodes 4 bits of data into a 7-bit code, by adding 3 bits of 
    - The 4th bit is filled so that the XOR of 4th, 5th, 6th and 7th bit is 0. In the above example, the XOR of 5th, 6th and 7th bit is already 0, so the 4th bit must be 0.
 - After the process, we get the fully encoded message 0 1 1 0 0 1 1.
 
-|Position|	1|	2|	3|	4	|5 |	6|	7|
-|--------|--|--|--|--|--|--|--|
-|Raw Message|  |  | 1 |   | 0 |	1 |	1 |
-|Encoded Message|	0	| 1 |	1 |	0 |	0 |	1 |	1 |
+| Position |	1  |	2 |	3 |	4	| 5 |	6 |	7 |
+| -------- |---|---|---|---|---|---|---|
+| Raw Message | - | - | 1 | -  | 0 |	1 |	1 |
+| Encoded Message |	0	| 1 |	1 |	0 |	0 |	1 |	1 |
+
 
 Now, let’s talk about the decoding process of Hamming(7,4) code. To see how the code corrects an isolated error, let’s suppose that the 3rd bit gets flipped incorrectly when the message 0 1 1 0 0 1 1 is transmitted. Therefore, the receiver will receive the following corrupted message instead: 0 1 0 0 0 1 1.
 
