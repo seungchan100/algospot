@@ -1,4 +1,4 @@
-# 문제
+## 문제
 
 You are working on a sequence of parentheses. There are four types of parentheses and the symbols used are ( ), { }, [ ], < >. We call '(', '{', '[', and '<' the left parentheses and ')', '}', ']', and '>' the right parentheses.
 
@@ -8,7 +8,7 @@ You want to modify the sequence such that the resulting sequence is a perfectly 
 
 Given the mistranscribed seqeunce of parentheses and an ordering of priority of different types, write a program that fixes the given sequence. You are to find all of the mismatched pairs, and for each pair, change the parenthesis of lower-priority type to a higher-priority type.
 
-# 입력
+## 입력
 
 The input consists of T test cases. T will be given in the first line of the input file, and T test cases will follow.
 
@@ -18,21 +18,21 @@ Strings will not contain any whitespaces, and two strings will be separated by a
 
 Note that you started with a perfectly matched sequence and that no left parentheses are wrongly transcribed to right parentheses, and vice versa. For example, '(}', '()([)]', and '([}{])' are valid mis-transcribed sequences, but '(}}', '()(([)]', '([}]{])' are not. You can assume that input will consist only of valid sequences.
 
-# 출력
+## 출력
 
 For each of the test case, print the resulting sequence in a single line.
 
-# 예제 입력
+## 예제 입력
 ```
 2
 (} {(<[
 ()([)> <({[
 ```
-# 예제 출력
+## 예제 출력
 ```
 {}
 ()<()>
 ```
-# 노트
+## 노트
 
 For the second test case, there are two mismatched pairs: ( > and [ ). The priority order of the parentheses, from highest to lowest, is < >, ( ), { }, and [ ]. The first mismatched pair ( > should be modified to < >, as < > has higher priority than ( ). And the second mismatched pair [ ) should be modified to ( ), as ( ) has higher priority than [ ]. Thus the result should be ()<()>.
